@@ -1,0 +1,65 @@
+
+@include keyframes(sea1) {
+	55% {
+		@include translate(0px, -20px);
+	}
+}
+
+@include keyframes(sea2) {
+	55% {
+		@include translate(-45px, -10px);
+	}
+}
+
+@include keyframes(sea3) {
+	55% {
+		@include translate(0, 15px);
+	}
+}
+
+@include keyframes(duck-right-left) {
+	100% {
+		right: $stage-width*2;
+	}
+}
+
+@include keyframes(duck-left-right) {
+	100% {
+		left: $stage-width*2;
+	}
+}
+
+@include keyframes(intro-bg) {
+	15% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	99% {
+		z-index: 100;
+	}
+	100% {
+		opacity: 0;
+		z-index: -1;
+	}
+}
+
+@include keyframes(intro-img) {
+	70% {
+		@include scale(1);
+	}
+	85% {
+		@include scale(0.9);
+	}
+	100% {
+		@include scale(1);
+	}
+}
+
+@include keyframes(game-over) {
+	100% {
+		z-index: 94;
+		opacity: 1;
+	}
+}

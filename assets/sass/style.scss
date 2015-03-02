@@ -1,0 +1,311 @@
+@import "compass/css3";
+
+@import "reset";
+@import "variables";
+@import "animations";
+
+body {
+	background-color: #f0f0f0;
+}
+
+input[type="radio"] {
+	visible: hidden;
+}
+
+label {
+	cursor: url(../img/cursor.png) 35 35, auto;
+}
+
+.stage {
+	width: $stage-width;
+	height: $stage-height;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -($stage-height / 2);
+	margin-left: -($stage-width / 2);
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: center center;
+	@extend label;
+	@include background-size(cover);
+	@include background-image(url(../img/garden.svg), linear-gradient(#87D5F7, #B0E2F9));
+	@include box-shadow(0px 0px 5px 0px rgba(0, 0, 0, 0.5));
+}
+
+.awning {
+	width: 100%;
+	height: 144px;
+	background: url('../img/awning.png') repeat-x;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.stall {
+	width: 100%;
+	height: 145px;
+	background: url('../img/stall.svg') repeat-x;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 4;
+}
+
+.intro {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	opacity: 0;
+	@include animation(intro-bg $intro-duration+s ease forwards);
+
+	img {
+		height: 70%;
+		margin-top: 7%;
+		@include animation(intro-img $intro-duration+s ease forwards);
+	}
+}
+
+.game-over {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	opacity: 0;
+	@include transition(all 1s ease 0.3s);
+	@include animation(game-over 1s ease (($number-of-ducks * 2) + $intro-duration+20)+s forwards);
+
+	img:first-child {
+		margin-top: 2%;
+		height: 25%;
+	}
+
+	img:last-child {
+		height: 73%;
+	}
+}
+
+input[type="radio"].radio-duck:checked {
+	counter-increment: points;
+}
+
+.points {
+	width: 110px;
+	height: 55px;
+	position: absolute;
+	bottom: 20px;
+	z-index: 95;
+	background-color: #FFFFFF;
+	border: 3px solid $default-color;
+	border-left: none;
+	@include border-radius(20px);
+	@include border-left-radius(0);
+	@include box-shadow(0px 0px 5px 0px rgba(0, 0, 0, 0.5));
+
+	&:before {
+		font: 30px/30px bold Arial, sans-serif;
+		color: $default-color;
+		float: right;
+		margin: 10px 15px 0 0;
+		// content: counter(points);
+		content: counters(points, "", decimal-leading-zero);
+	}
+
+	img {
+		margin: 6px 0 0 10px;
+	}
+}
+
+.sea {
+	width: $stage-width + 500;
+	height: 105px;
+	background: url('../img/sea.svg') repeat-x;
+	position: absolute;
+
+	&.fake {
+		bottom: 145px;
+		z-index: 0;
+		background-color: $sea-color;
+	}
+
+	&.sea-1 { 
+		z-index: 3;
+		bottom: 145px;
+		@include animation(sea1 4s ease infinite);
+	}
+
+	&.sea-2 {
+		z-index: 2;
+		bottom: 195px;
+		@include translateX(-40px);
+		@include animation(sea2 4s ease infinite);
+	}
+
+	&.sea-3 {
+		z-index: 1;
+		bottom: 245px;
+		@include animation(sea3 4s ease infinite);
+	}
+}
+
+.duck {
+	width: 127px;
+	height: 114px;
+	background-image: url("../img/duck.png");
+	position: absolute;
+	@include transition(transform .8s, opacity 0.5s .1s ease);
+	@include transform-origin(0%, 100%);
+
+	img {
+		opacity: 0;
+		@include transition(all 0.3s ease);
+	}
+
+	&:nth-child(even) {
+		right: -400px;
+	}
+
+	&:nth-child(odd) {
+		left: -400px;
+	}
+
+	&.duck-1 {
+		z-index: 1;
+		bottom: 255px;
+
+		img {
+			@include transform(scale(0) translate(-20px, -25px));
+		}
+	}
+
+	&.duck-2 {
+		z-index: 1;
+		bottom: 255px;
+		@include rotateY(180deg);
+
+		img {
+			@include transform(rotateY(180deg) scale(0) translate(20px, -25px));
+		}
+	}
+
+	&.duck-3 {
+		z-index: 2;
+		bottom: 200px;
+
+		img {
+			@include transform(scale(0) translate(-20px, -25px));
+		}
+	}
+
+	&.duck-4 {
+		z-index: 2;
+		bottom: 200px;
+		@include rotateY(180deg);
+
+		img {
+			@include transform(rotateY(180deg) scale(0) translate(20px, -25px));
+		}
+	}
+
+	&.duck-5 {
+		z-index: 3;
+		bottom: 150px;
+
+		img {
+			@include transform(scale(0) translate(-20px, -25px));
+		}
+	}
+
+	&.duck-6 {
+		z-index: 3;
+		bottom: 150px;
+		@include rotateY(180deg);
+
+		img {
+			@include transform(rotateY(180deg) scale(0) translate(20px, -25px));
+		}
+	}
+
+	&.bomber {
+		width: 129px;
+		background-image: url("../img/bomber.png");
+		@include transition(opacity 0.5s .3s ease);
+	}
+}
+
+
+@for $i from 1 through $number-of-ducks {
+
+	$delay: random($number-of-ducks * 2) + $intro-duration;
+
+	@if $i % 2 != 0 {
+
+		#duck#{$i}:checked ~ [for^="duck#{$i}"] {
+	  		@include rotateX(90deg);
+			opacity: 0;
+		}
+
+		label[for="duck#{$i}"] {
+			@include animation(duck-right-left (random(10)+10)+s ease $delay+s forwards);
+		}
+	}
+	@else {
+
+		#duck#{$i}:checked ~ [for^="duck#{$i}"] {
+			@include transform(rotateY(180deg) rotateX(90deg));
+			opacity: 0;
+		}
+
+		label[for="duck#{$i}"] {
+			@include animation(duck-left-right (random(10)+10)+s ease $delay+s forwards);
+		}
+	}
+}
+
+
+@for $i from 1 through $number-of-ducks/2 {
+
+	#bomber#{$i}:checked ~ [for^="bomber#{$i}"] {
+		opacity: 0;
+		@include animation-play-state(paused);
+	}
+
+	#bomber#{$i}:checked ~ .game-over {
+		z-index: 94;
+		opacity: 1;
+	}
+
+	$delay: random($number-of-ducks * 2) + $intro-duration;
+
+	@if $i % 2 != 0 {
+
+		#bomber#{$i}:checked ~ [for^="bomber#{$i}"] > img {
+			@include transform(scale(1.5) translate(-20px, -25px));
+			opacity: 1;
+		}
+
+		label[for="bomber#{$i}"] {
+			@include animation(duck-right-left (random(10)+10)+s ease $delay+s forwards);
+		}
+	}
+	@else {
+
+		#bomber#{$i}:checked ~ [for^="bomber#{$i}"] > img {
+			@include transform(rotateY(180deg) scale(1.5) translate(20px, -25px));
+			opacity: 1;
+		}
+
+		label[for="bomber#{$i}"] {
+			@include animation(duck-left-right (random(10)+10)+s ease $delay+s forwards);
+		}
+	}
+}
