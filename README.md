@@ -1,33 +1,33 @@
-#Duck Hunt - CSS Game
->Duck Hunt is a simple game using just HTML and CSS, **WITHOUT JAVASCRIPT**.
+# Duck Hunt - CSS Game
+> Duck Hunt is a simple game using just HTML and CSS, **WITHOUT JAVASCRIPT**.
 
-###[PLAY NOW!](http://lucascaprio.com/portfolio/duck-hunt/)
+### [PLAY NOW!](http://lucascaprio.com/portfolio/duck-hunt/)
 
-##Requirements
+## Requirements
 * [gulp](http://gulpjs.com/) -- v3.8.10 or newer
 * [sass](http://sass-lang.com/install) -- v3.4.9 or newer
 * [compass](http://compass-style.org/install/) -- v1.0.1 or newer
 
 
-##Installation
-```bash
-	npm install
+## Installation
+```ssh
+	$ npm install
 ```
 
-#####Watch sass files, run the default task:
-```bash
-	gulp
+#### Watch sass files, run the default task:
+```ssh
+	$ gulp
 ```
 
-#####or if you want to compile once:
-```bash
+#### or if you want to compile once:
+```ssh
 	gulp styles
 ```
 
-#####Optimize images:
-```bash
-	gulp images
+#### Optimize images:
+```ssh
+	$ gulp images
 ```
 
-##License
+## License
 MIT. See [LICENSE](https://github.com/lucascaprio/duck-hunt/blob/master/LICENSE) file.
