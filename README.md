@@ -11,22 +11,22 @@
 
 ## Installation
 ```ssh
-	$ npm install
+$ npm install
 ```
 
 #### Watch sass files, run the default task:
 ```ssh
-	$ gulp
+$ gulp
 ```
 
 #### or if you want to compile once:
 ```ssh
-	gulp styles
+gulp styles
 ```
 
 #### Optimize images:
 ```ssh
-	$ gulp images
+$ gulp images
 ```
 
 ## License
