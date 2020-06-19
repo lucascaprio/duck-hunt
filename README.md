@@ -1,7 +1,7 @@
 # Duck Hunt - CSS Game
 > Duck Hunt is a simple game using just HTML and CSS, **WITHOUT JAVASCRIPT**.
 
-### [PLAY NOW!](http://lucascaprio.com/portfolio/duck-hunt/)
+### [PLAY NOW!](http://lucascaprio.github.io/duck-hunt/)
 
 ## Requirements
 * [gulp](http://gulpjs.com/) -- v3.8.10 or newer
