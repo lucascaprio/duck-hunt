@@ -15,11 +15,9 @@
 	<meta property="og:site_name" content="Duck Hunt - CSS Game" />
 	<meta property="og:title" content="Duck Hunt - CSS Game" />
 	<meta property="og:type" content="game" />
-	<meta property="og:url"	content="http://www.lucascaprio.com/portfolio/duck-hunt/" />
-	<meta property="og:image" content="http://www.lucascaprio.com/portfolio/duck-hunt/assets/img/facebook.jpg" />
+	<meta property="og:url"	content="https://lucascaprio.github.io/duck-hunt/" />
+	<meta property="og:image" content="https://lucascaprio.github.io/duck-hunt/assets/img/facebook.jpg" />
 	<meta property="og:description" content="Duck Hunt - CSS Game" />
-	<meta property="og:email" content="lucasfernandescaprio@gmail.com"/>
-	<meta property="og:phone_number" content="13-99603-4300"/>
 
 	<title>Duck Hunt - CSS Game</title>
 	<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon"/>
